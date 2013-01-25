@@ -1,0 +1,1 @@
+{'user_token': fdsaf2u278378901jf, 'pokemon': []}

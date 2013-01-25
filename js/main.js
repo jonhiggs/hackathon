@@ -43,5 +43,11 @@ var main = {
     __init__: function() {
         result = backend.call('test', get_url_parameters())
         $('#main_body').html(result);
-    }
+    },
+    
+    includeJS: function(location) {
+        script_tag = $.createElement('script');
+        script_tag.src = 'js/' + location + '.js';
+        document.getElementsByTagName('head')[0].appendChild(script_tag);
+    },
 }
