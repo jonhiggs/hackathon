@@ -103,7 +103,19 @@ var main = {
     },
     
     battle_attack_pokemon: function() {
-        
+        $("#friendly_pokemon").animate({ marginLeft: "+=170px", marginTop: "-=100px"}, {
+            duration: 500,
+            complete: function () {
+                $("#friendly_pokemon").animate({ marginLeft: "-=170px", marginTop: "+=100px" },
+                {
+                    duration: 500,
+                    complete: function ()
+                    {
+                        //animatethis(targetElement, speed);
+                    }
+                });
+            }
+        });
     },
     
     load_template: function(name) {
