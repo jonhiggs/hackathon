@@ -2,8 +2,9 @@
 
 $user_id = $_GET['token'];
 
+
 function user_exists($id) {
-  include "../settings.php";
+  include(dirname(__FILE__)."/../settings.php");
   echo "$id\n";
   $response = $database->query("SELECT count(*) FROM users WHERE md5='$id'");
   if ($response->fetchColumn() > 0) {
@@ -14,14 +15,14 @@ function user_exists($id) {
 }
 
 function create_user($id) {
-  include "../settings.php";
+  include(dirname(__FILE__)."/../settings.php");
   $query = $database->prepare("INSERT INTO users (md5) VALUES (:id);");
   $query->bindParam(':id', $id);
   $query->execute();
 }
 
 function get_pokemons($id) {
-  include "../settings.php";
+  include(dirname(__FILE__)."/../settings.php");
   $query = $database->prepare("SELECT * FROM living_pokemon WHERE owner=:id");
   $query->bindParam(':id', $id);
   $query->execute();
