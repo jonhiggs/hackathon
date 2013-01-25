@@ -42,6 +42,6 @@ String.prototype.pad = function(len, pad_char) {
 var main = {
     __init__: function() {
         result = backend.call('test', get_url_parameters())
-        $('#main_body').html(result)
+        $('#main_body').html(result);
     }
 }
