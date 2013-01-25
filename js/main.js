@@ -39,10 +39,9 @@ String.prototype.pad = function(len, pad_char) {
 	return this.toString();
 }
 
-
-
 var main = {
     __init__: function() {
-        backend.call('test', get_url_parameters())
+        result = backend.call('test', get_url_parameters())
+        $('#main_body').html(result)
     }
 }
