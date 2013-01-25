@@ -56,8 +56,6 @@ var main = {
     phase_select_pokemon: function() {
         html = this.load_template('select_pokemon');
         
-        
-        
         $('#main_body').html(html);
     },
     
