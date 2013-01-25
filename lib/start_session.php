@@ -1,6 +1,6 @@
 <?php
 
-$user_id = "thisisatestmd5sum";
+$user_id = $_GET['token'];
 
 function user_exists($id) {
   include "../settings.php";
@@ -41,9 +41,6 @@ if ( user_exists($user_id) ) {
   echo "need to create user\n";
   create_user($user_id);
 }
-
-get_pokemons($user_id)
-
 
 ?>
 

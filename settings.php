@@ -1,6 +1,5 @@
 <?php
 define("DATABASE_FILE", dirname(__FILE__)."/db.sqlite");
-#$database = new SQLiteDatabase(DATABASE_FILE, 0666);
 $database = new PDO('sqlite:'.DATABASE_FILE);
 
 $database->exec("CREATE TABLE users (md5 VARCHAR(32) PRIMARY KEY, deaths INTEGER)");    
