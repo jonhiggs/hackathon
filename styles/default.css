@@ -13,6 +13,12 @@ body {
     color: #FFF;
 }
 
+#battle_stage {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
 #select_pokemon {
     height: 100%;
     width: 100%;
