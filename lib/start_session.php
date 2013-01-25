@@ -53,7 +53,7 @@ function get_pokemons($id) {
   foreach ($result as $data) {
     array_push($pokemons, $data['id']);
   }
-  return "[" . implode(",", $pokemons) . "]";
+  return $pokemons;
 }
 
 if ( ! user_exists($user_id) ) {
