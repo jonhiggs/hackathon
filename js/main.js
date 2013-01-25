@@ -40,17 +40,26 @@ String.prototype.pad = function(len, pad_char) {
 }
 
 var main = {
+    _session_data: {},
+    _pokemon: [],
+    
     __init__: function() {
+        params = get_url_parameters()
+        this._session_data['scanned_pokemon'] = params['scanned_pokemon'];
+        
         token = cookie.get('poke_token')
         user_data = backend.call('start_session', {'token': token});
+        
+        cookie.set('poke_token', user_data['token']);
         
         /*if(user_data['pokemon'].length == 0) {
             this.phase_select_pokemon();
         } else {
-            this.phase_battle_pokemon();
+            this.start_battle();
         }*/
         
-        this.phase_select_pokemon();
+        //this.phase_select_pokemon();
+        this.start_battle();
     },
     
     phase_select_pokemon: function() {
@@ -60,9 +69,19 @@ var main = {
     },
     
     select_pokemon: function(name) {
-        html = this.load_template('pokemon_selected');
+        backend.call('create_pokemen', {
+            'token':this._session_data['token'],
+            'pokemon_name': name
+        })
         
+        html = this.load_template('pokemon_selected');
         html = html.replace('{{pokemon_name}}', name);
+        $('#main_body').html(html);
+    },
+    
+    start_battle: function() {
+        html = this.load_template('battle_stage');
+        
         $('#main_body').html(html);
     },
     
