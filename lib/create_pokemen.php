@@ -1,6 +1,6 @@
 <?php
-pokemon_type="1";
-owner="blah";
+$pokemon_type="1";
+$owner="thisisatestmd5sum";
 
 include "../settings.php";
 $query = $database->prepare("INSERT INTO living_pokemon (type, owner) VALUES (:type, :owner);");

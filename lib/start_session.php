@@ -26,8 +26,12 @@ function get_pokemons($id) {
   $query->bindParam(':id', $id);
   $query->execute();
   $result = $query->fetchAll();
-  print_r($result);
-  return $result;
+
+  $pokemons = array();
+  foreach ($result as $data) {
+    array_push($pokemons, $data['id']);
+  }
+  return "[" . implode(",", $pokemons) . "]";
 }
 
 if ( user_exists($user_id) ) {
@@ -43,4 +47,4 @@ get_pokemons($user_id)
 
 ?>
 
-{'user_token': '<?php $user_id ?>', 'pokemon': []}
+{'user_token': '<?php $user_id ?>', 'pokemon': '<?php echo get_pokemons($user_id) ?>'}
