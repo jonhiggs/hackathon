@@ -2,10 +2,8 @@
 
 $user_id = $_GET['token'];
 
-
 function user_exists($id) {
   include(dirname(__FILE__)."/../settings.php");
-  echo "$id\n";
   $response = $database->query("SELECT count(*) FROM users WHERE md5='$id'");
   if ($response->fetchColumn() > 0) {
     return true;
@@ -35,11 +33,7 @@ function get_pokemons($id) {
   return "[" . implode(",", $pokemons) . "]";
 }
 
-if ( user_exists($user_id) ) {
-  echo "user exists\n";
-} else {
-  echo "user doesn't exist\n";
-  echo "need to create user\n";
+if ( ! user_exists($user_id) ) {
   create_user($user_id);
 }
 
