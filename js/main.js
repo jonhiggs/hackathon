@@ -42,13 +42,13 @@ String.prototype.pad = function(len, pad_char) {
 var main = {
     __init__: function() {
         token = cookie.get('poke_token')
-        user_data = backend.call('session_start', {'token': token});
+        user_data = backend.call('start_session', {'token': token});
         
-        /*if(user_data['pokemon'].length == 0) {
+        if(user_data['pokemon'].length == 0) {
             this.phase_select_pokemon();
         } else {
             this.phase_battle_pokemon();
-        }*/
+        }
         
         this.phase_select_pokemon();
     },
@@ -57,6 +57,10 @@ var main = {
         html = this.load_template('select_pokemon');
         
         $('#main_body').html(html);
+    },
+    
+    select_pokemon: function(name) {
+        
     },
     
     load_template: function(name) {
