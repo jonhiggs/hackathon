@@ -58,8 +58,8 @@ var main = {
             this.start_battle();
         }*/
         
-        //this.phase_select_pokemon();
-        this.start_battle();
+        this.phase_select_pokemon();
+        //this.start_battle();
     },
     
     phase_select_pokemon: function() {
