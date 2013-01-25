@@ -44,11 +44,11 @@ var main = {
         token = cookie.get('poke_token')
         user_data = backend.call('start_session', {'token': token});
         
-        if(user_data['pokemon'].length == 0) {
+        /*if(user_data['pokemon'].length == 0) {
             this.phase_select_pokemon();
         } else {
             this.phase_battle_pokemon();
-        }
+        }*/
         
         this.phase_select_pokemon();
     },
@@ -60,7 +60,10 @@ var main = {
     },
     
     select_pokemon: function(name) {
+        html = this.load_template('pokemon_selected');
         
+        html = html.replace('{{pokemon_name}}', name);
+        $('#main_body').html(html);
     },
     
     load_template: function(name) {
