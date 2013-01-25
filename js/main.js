@@ -41,13 +41,27 @@ String.prototype.pad = function(len, pad_char) {
 
 var main = {
     __init__: function() {
-        result = backend.call('test', get_url_parameters())
-        $('#main_body').html(result);
+        token = cookie.get('poke_token')
+        user_data = backend.call('session_start', {'token': token});
+        
+        /*if(user_data['pokemon'].length == 0) {
+            this.phase_select_pokemon();
+        } else {
+            this.phase_battle_pokemon();
+        }*/
+        
+        this.phase_select_pokemon();
     },
     
-    includeJS: function(location) {
-        script_tag = $.createElement('script');
-        script_tag.src = 'js/' + location + '.js';
-        document.getElementsByTagName('head')[0].appendChild(script_tag);
+    phase_select_pokemon: function() {
+        html = this.load_template('select_pokemon');
+        
+        
+        
+        $('#main_body').html(html);
     },
+    
+    load_template: function(name) {
+        return _ajax_get('templates/' + name + '.html');
+    }
 }
