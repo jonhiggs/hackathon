@@ -1,0 +1,27 @@
+<div id="battlewrapper">
+			<div id="over9000" style="float: left; position: relative; z-index:998; display:none;">
+				<img src="img/9000.png" width="256px" height="146px">
+			</div>
+			<div id="youwin" style="float: left; height:100%; position: relative; z-index:999; display:none; background-color: black;">
+				<font id="wintext" size="10" style="color:white;">YOU WIN!</font>
+			</div>
+			<div id="healthwrapper" style="background-color: red; float: left; position: relative; top: 10px; left: 10px; width: 100px; height: 20px;">
+				<div id="healthbar" style="background-color: green; height:98%; width:100%; vertical-align: middle;"></div>
+			</div>
+			<div id='battlescreen'></div><br/>
+			<div id='actionscreen' style="border: double; width:256px;"><textarea style="width: 100%;" id="combatlog" contenteditable="false"></textarea></div>
+		</div>
+		
+		<div id="before_fight_buttons" style="visibility:hidden;">
+			<button type="button" id="button_fight">FIGHT</button>
+			<button type="button" id="button_pkmn">PKMN</button><br/><br/>
+			<button type="button" id="button_pkmn">ITEMS</button>
+			<button type="button" id="button_pkmn">FLEE</button>
+		</div>
+		
+		<div id="fight_buttons" style="visibility:hidden;">
+			<button type="button" id="button_tackle" onmousedown="javascript:dodamage();">TACKLE</button>
+			<button type="button" id="button_pkmn">WHATEVER</button><br/><br/>
+			<button type="button" id="button_pkmn">SOMETHING</button>
+			<button type="button" id="button_pkmn">CRY</button>
+		</div>
