@@ -22,12 +22,12 @@ function create_user($id) {
 
 function get_pokemons($id) {
   include "../settings.php";
-  $query = $database->prepare("SELECT * FROM pokemon WHERE owner=:id");
+  $query = $database->prepare("SELECT * FROM living_pokemon WHERE owner=:id");
   $query->bindParam(':id', $id);
   $query->execute();
   $result = $query->fetchAll();
   print_r($result);
-  return $result
+  return $result;
 }
 
 if ( user_exists($user_id) ) {
@@ -38,7 +38,7 @@ if ( user_exists($user_id) ) {
   create_user($user_id);
 }
 
-get_pokemons()
+get_pokemons($user_id)
 
 
 ?>
